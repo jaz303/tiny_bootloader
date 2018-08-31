@@ -26,7 +26,11 @@ void bootloader_run(void);
 #define STATUS_OVERFLOW         (-5)
 #define STATUS_INVALID_PAGE     (-6)
 
-#define BUFFER_SIZE             (COMMAND_SIZE + TINY_BOOTLOADER_PAGE_SIZE)
+#ifdef TINY_BOOTLOADER_BUFFER_SIZE
+#define BUFFER_SIZE TINY_BOOTLOADER_BUFFER_SIZE
+#else
+#define BUFFER_SIZE (COMMAND_SIZE + TINY_BOOTLOADER_PAGE_SIZE)
+#endif
 
 static char buffer[BUFFER_SIZE];
 
