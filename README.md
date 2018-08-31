@@ -8,5 +8,6 @@ Work in progress right now.
 
 Initial target devices:
 
+  - [ATmega324PB](https://github.com/jaz303/tiny_bootloader/tree/master/examples/ATmega324PB)
   - ATmega328PB
   - ATSAMD21 series
