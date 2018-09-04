@@ -18,7 +18,15 @@ Tiny Bootloader models the target microcontroller as a series of random-access, 
 
 ## Project Goals
 
-Tiny Bootloader's first goal is portability. If you absolutely must have the smallest possible bootloader, an optimised, architecture-specific solution (such as [Optiboot](https://github.com/Optiboot/optiboot) for the Atmel AVR platform) will probably beat Tiny Bootloader.
+Tiny Bootloader's first goal is portability. If you absolutely must have the smallest possible bootloader, an optimised, architecture-specific solution (such as [Optiboot](https://github.com/Optiboot/optiboot) for the Atmel AVR platform) will beat Tiny Bootloader.
+
+The second goal is to have the smallest possible size without comprising portability. As such, the feature set is small, and should any exotic (read: large) features (such as CRC32) be added in the future, they will be opt-in and not part of the core feature set. As a rule of thumb, bootloaders using Tiny Bootloader should fit in &lt; 2KiB of ROM
+
+The final goal is to develop robust client applications for multiple languages and platforms. The initial targets are cross-platform JavaScript and Go, with POSIX C a close third. It should be easy to flash any Tiny Bootloader-enabled device with the same set of tools, providing that easy access is provided to the bootloader itself at a hardware level (e.g. button).
+
+## Notes
+
+Despite its name, Tiny Bootloader is not limited to loading application code. It can also be used, for example, to load VM bytecode, configuration data, or anything else - all you need to do to inject code into a smaller area is to reduce the page count and start at a different base address. In the future, Tiny Bootloader will be extended to support an optional memory map so that clients can interrogate available sections.
 
 ## Implementation
 
@@ -69,3 +77,4 @@ int main() {
   - Javascript client
   - Golang client
   - Optional CRC32 for verification
+  - Optional memory map
