@@ -73,6 +73,7 @@ int main() {
 
   - Document protocol
   - Support protocol extensions by routing all commands with `0x80` bit set to user-defined handler
+  - Experiment with consistent-overhead byte stuffing
   - Add `CMD_READ_PAGE`
   - Javascript client
   - Golang client
