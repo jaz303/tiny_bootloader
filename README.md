@@ -18,7 +18,7 @@ Tiny Bootloader models the target microcontroller as a series of random-access, 
 
 ## Project Goals
 
-Tiny Bootloader's first goal is portability. If you absolutely must have the smallest possible bootloader, an optimised, architecture-specific solution (such as [Optiboot](https://github.com/Optiboot/optiboot) for the Atmel AVR platform) will beat Tiny Bootloader.
+Tiny Bootloader's first goal is portability; all architecture-specific code lives inside the host program. If you absolutely must have the smallest possible bootloader, an optimised, architecture-specific solution (such as [Optiboot](https://github.com/Optiboot/optiboot) for the Atmel AVR platform) will beat Tiny Bootloader.
 
 The second goal is to have the smallest possible size without comprising portability. As such, the feature set is small, and should any exotic (read: large) features (such as CRC32) be added in the future, they will be opt-in and not part of the core feature set. As a rule of thumb, bootloaders using Tiny Bootloader should fit in &lt; 2KiB of ROM
 
